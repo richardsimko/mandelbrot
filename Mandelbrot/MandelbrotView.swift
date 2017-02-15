@@ -31,7 +31,7 @@ class MandelbrotView: UIView {
                 }
                 else {
                     let factor = sqrt(Double(iterations) / Double(MAX_ITERATIONS));
-                    context.setFillColor(red: 0, green: 1-CGFloat(factor), blue: CGFloat(factor), alpha: 1 - CGFloat(factor));
+                    context.setFillColor(red: 0, green: 1-CGFloat(factor), blue: CGFloat(factor), alpha: 1.0);
                     let rectangle:CGRect = CGRect(x: j, y: i, width: 1, height: 1);
                     context.fill(rectangle);
                 }
