@@ -10,6 +10,8 @@ import Foundation
 
 class ImNumber : NSObject {
     
+    static let MAX_ITERATIONS:Int = 100;
+    
     var re:Double;
     var im:Double;
     
@@ -44,13 +46,13 @@ class ImNumber : NSObject {
         {
             return 1;
         }
-        for var i in 0...100 {
+        for var i in 0...ImNumber.MAX_ITERATIONS {
             z_n = self.add(other: z_n.square());
             if(z_n.abs() >= 4)
             {
                 return i;
             }
         }
-        return 100;
+        return ImNumber.MAX_ITERATIONS;
     }
 }

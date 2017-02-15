@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,14 +23,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8h-9P-t6V" customClass="MandelbrotView" customModule="Mandelbrot" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8h-9P-t6V" customClass="MandelbrotView" customModule="Mandelbrot" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="146" width="375" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m8h-9P-t6V" secondAttribute="height" multiplier="1:1" id="RNU-LS-c98"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-jP-soL">
+                                <rect key="frame" x="172" y="529" width="30" height="30"/>
+                                <state key="normal" title="Up"/>
+                                <connections>
+                                    <action selector="panUp" destination="BYZ-38-t0r" eventType="touchUpInside" id="jbG-9m-WGk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6K-mM-wV6">
+                                <rect key="frame" x="168" y="629" width="39" height="30"/>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="panDown" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdG-IM-tNF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TW-ab-OgT">
+                                <rect key="frame" x="66" y="575" width="30" height="30"/>
+                                <state key="normal" title="Left"/>
+                                <connections>
+                                    <action selector="panLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLW-TW-5T2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT9-HX-grP">
+                                <rect key="frame" x="273" y="575" width="36" height="30"/>
+                                <state key="normal" title="Right"/>
+                                <connections>
+                                    <action selector="panRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tsq-0Y-28k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Pn-IIG">
+                                <rect key="frame" x="66" y="28" width="30" height="30"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="zoomOut" destination="BYZ-38-t0r" eventType="touchUpInside" id="DBt-AC-2jH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNf-wN-aIk">
+                                <rect key="frame" x="270" y="28" width="36" height="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="zoomIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="W5T-Y7-Pyt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JdK-Pn-IIG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="1jD-C8-rqA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l6K-mM-wV6" secondAttribute="bottom" constant="8" id="5MS-As-LvC"/>
+                            <constraint firstItem="l6K-mM-wV6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5qD-6m-FyQ"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="top" secondItem="rNf-wN-aIk" secondAttribute="bottom" constant="88" id="73o-42-rc6"/>
+                            <constraint firstItem="JdK-Pn-IIG" firstAttribute="width" secondItem="5TW-ab-OgT" secondAttribute="width" id="8ab-On-fYL"/>
+                            <constraint firstItem="xhC-jP-soL" firstAttribute="top" secondItem="m8h-9P-t6V" secondAttribute="bottom" constant="8" id="8yE-Ex-PG1"/>
+                            <constraint firstItem="xhC-jP-soL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F3T-BH-Fn5"/>
+                            <constraint firstAttribute="trailing" secondItem="m8h-9P-t6V" secondAttribute="trailing" id="Hd8-gi-V6U"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KHQ-jB-oaA"/>
+                            <constraint firstItem="YT9-HX-grP" firstAttribute="top" secondItem="m8h-9P-t6V" secondAttribute="bottom" constant="54" id="Ljn-4L-LLW"/>
+                            <constraint firstItem="5TW-ab-OgT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="Opr-ZZ-Ddw"/>
+                            <constraint firstItem="rNf-wN-aIk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="PwT-qw-CcD"/>
+                            <constraint firstItem="5TW-ab-OgT" firstAttribute="top" secondItem="m8h-9P-t6V" secondAttribute="bottom" constant="54" id="Qgu-5C-yLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rNf-wN-aIk" secondAttribute="trailing" constant="53" id="Tkr-hV-NaG"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="126" id="XDf-ig-e3N"/>
+                            <constraint firstItem="xhC-jP-soL" firstAttribute="top" secondItem="m8h-9P-t6V" secondAttribute="bottom" constant="8" id="YGR-F9-vRW"/>
+                            <constraint firstItem="JdK-Pn-IIG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="aRw-sj-Bcl"/>
+                            <constraint firstItem="YT9-HX-grP" firstAttribute="width" secondItem="rNf-wN-aIk" secondAttribute="width" id="b7n-0c-wju"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YT9-HX-grP" secondAttribute="bottom" constant="62" id="nNg-vH-IvU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YT9-HX-grP" secondAttribute="trailing" constant="50" id="sQg-5z-fAk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5TW-ab-OgT" secondAttribute="bottom" constant="62" id="xgn-QO-W3I"/>
+                            <constraint firstItem="l6K-mM-wV6" firstAttribute="top" secondItem="xhC-jP-soL" secondAttribute="bottom" constant="70" id="ypB-IX-UBM"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="top" secondItem="JdK-Pn-IIG" secondAttribute="bottom" constant="88" id="yul-rM-Tzw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mandelbrotView" destination="m8h-9P-t6V" id="fGv-n3-KFN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

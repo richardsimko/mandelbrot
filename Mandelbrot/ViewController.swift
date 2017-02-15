@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mandelbrotView:MandelbrotView!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,36 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func panUp(){
+        self.mandelbrotView.currentCenterY += 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func panDown(){
+        self.mandelbrotView.currentCenterY -= 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func panLeft(){
+        self.mandelbrotView.currentCenterX -= 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func panRight(){
+        self.mandelbrotView.currentCenterX += 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func zoomIn(){
+        self.mandelbrotView.currentHeight -= 0.1;
+        self.mandelbrotView.currentWidth -= 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func zoomOut(){
+        self.mandelbrotView.currentHeight += 0.1;
+        self.mandelbrotView.currentWidth += 0.1;
+        self.mandelbrotView.setNeedsDisplay();
+    }
 }
 
