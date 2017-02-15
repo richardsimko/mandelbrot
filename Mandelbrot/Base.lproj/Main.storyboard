@@ -56,6 +56,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ITx-oz-oWR"/>
                                 </connections>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XHs-rh-G9X">
+                                <rect key="frame" x="177" y="52" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -69,6 +73,7 @@
                         <outlet property="contentView" destination="u0u-xn-J4w" id="D0w-TF-dwW"/>
                         <outlet property="mandelbrotView" destination="Fpr-s0-jY3" id="QBC-uG-XRp"/>
                         <outlet property="scrollView" destination="m8h-9P-t6V" id="PJW-Y8-uPc"/>
+                        <outlet property="spinner" destination="XHs-rh-G9X" id="Gkk-E9-fvW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

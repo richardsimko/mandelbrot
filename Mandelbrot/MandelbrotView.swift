@@ -9,8 +9,14 @@
 import Foundation
 import UIKit
 
+protocol MandelbrotViewDelegate: class{
+    func mandelbrotViewDidFinishRendering();
+}
+
 class MandelbrotView: UIView {
     
+    weak var delegate:MandelbrotViewDelegate?
+
     var currentCenterX = 0.0;
     var currentCenterY = 0.0;
     var currentWidth = 4.0;
@@ -26,9 +32,13 @@ class MandelbrotView: UIView {
     
     func zoomToScale(scale: CGFloat){
         self.lastScale *= scale;
-        currentWidth = (1 / Double(self.lastScale)) * 4.0;
-        currentHeight = (1 / Double(self.lastScale)) * 4.0;
-        self.setNeedsDisplay();
+        currentWidth = Double(scale) * 4.0;
+        currentHeight = Double(scale) * 4.0;
+    }
+    
+    func scrollTo(x: CGFloat, y: CGFloat){
+        self.currentCenterX += self.currentWidth * (Double(x) / Double(self.frame.size.width));
+        self.currentCenterY += self.currentHeight * (Double(y) / Double(self.frame.size.height));
     }
     
     override func draw(_ rect: CGRect) {
@@ -49,25 +59,7 @@ class MandelbrotView: UIView {
                 }
             }
         }
+        self.delegate?.mandelbrotViewDidFinishRendering();
         return super.draw(rect);
-    }
-    
-    func pinch(sender: UIPinchGestureRecognizer) {
-        if (sender.state == UIGestureRecognizerState.began) {
-            self.lastScale = 1.0;
-        }
-        let scale = 1.0 - (lastScale - sender.scale);
-        self.transform = CGAffineTransform.init(scaleX: scale, y: scale);
-        self.lastScale = sender.scale;
-        self.setNeedsLayout();
-//        if(recognizer.state == UIGestureRecognizerState.changed){
-//            let recogScale = recognizer.scale;
-//            let newScale = recognizer.scale * self.lastScale;
-//            let transform = CGAffineTransform.init(scaleX: newScale, y: newScale);
-//            self.transform = transform;
-//        } else if(recognizer.state == UIGestureRecognizerState.ended){
-//            print("end");
-//            self.lastScale = recognizer.scale;
-//        }
     }
 }
