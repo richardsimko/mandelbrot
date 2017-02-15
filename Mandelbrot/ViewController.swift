@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
         self.preventScrollAnimation = true;
         self.scrollView.scrollRectToVisible(self.mandelbrotView.convert(self.mandelbrotView.bounds, to: self.scrollView), animated: false);
         self.originalScrollPosition = self.scrollView.contentOffset;
-        //        TODO: 1. When scroll is done, figure out where we are in relation to where we started, apply that to the panning in the MandelbrotView and reset the scroll position in the UIScrollView. Same for zoom.
+        self.mandelbrotView.addGestureRecognizer(UIPinchGestureRecognizer.init(target: self.mandelbrotView, action: #selector(self.mandelbrotView.pinch(sender:))));
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +53,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
             self.preventScrollAnimation = false;
         } else {
             NSObject.cancelPreviousPerformRequests(withTarget: self);
-            self.mandelbrotView.zoomToScale(scale: self.scrollView.zoomScale);
             var xOffset = self.scrollView.contentOffset.x - (self.originalScrollPosition?.x)!;
             var yOffset = (self.originalScrollPosition?.y)! - self.scrollView.contentOffset.y;
             print(self.scrollView.contentOffset);
@@ -63,10 +62,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
     }
     
     internal func mandelbrotViewDidFinishRendering() {
-        //        self.scrollView.zoomScale = 1.0;
-        self.scrollView.scrollRectToVisible(self.mandelbrotView.convert(self.mandelbrotView.bounds, to: self.scrollView), animated: false);
-        self.originalScrollPosition = self.scrollView.contentOffset;
-        self.preventScrollAnimation = true;
+        if(self.originalScrollPosition?.x != self.scrollView.contentOffset.x || self.originalScrollPosition?.y != self.scrollView.contentOffset.y){
+            self.scrollView.scrollRectToVisible(self.mandelbrotView.convert(self.mandelbrotView.bounds, to: self.scrollView), animated: false);
+            self.originalScrollPosition = self.scrollView.contentOffset;
+            self.preventScrollAnimation = true;
+        }
         self.spinner.stopAnimating();
     }
 }

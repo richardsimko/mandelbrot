@@ -16,7 +16,7 @@ protocol MandelbrotViewDelegate: class{
 class MandelbrotView: UIView {
     
     weak var delegate:MandelbrotViewDelegate?
-
+    
     var currentCenterX = 0.0;
     var currentCenterY = 0.0;
     var currentWidth = 4.0;
@@ -31,9 +31,8 @@ class MandelbrotView: UIView {
     }
     
     func zoomToScale(scale: CGFloat){
-        self.lastScale *= scale;
-        currentWidth = Double(scale) * 4.0;
-        currentHeight = Double(scale) * 4.0;
+        self.currentWidth = 1 / Double(scale) * 4.0;
+        self.currentHeight = 1 / Double(scale) * 4.0;
     }
     
     func scrollTo(x: CGFloat, y: CGFloat){
@@ -61,5 +60,15 @@ class MandelbrotView: UIView {
         }
         self.delegate?.mandelbrotViewDidFinishRendering();
         return super.draw(rect);
+    }
+    
+    func pinch(sender: UIPinchGestureRecognizer) {
+        self.transform = CGAffineTransform.init(scaleX: sender.scale, y: sender.scale);
+        self.zoomToScale(scale: sender.scale);
+        if sender.state == UIGestureRecognizerState.ended {
+            print("ended", sender.scale);
+            self.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0);
+            self.setNeedsDisplay();
+        }
     }
 }
