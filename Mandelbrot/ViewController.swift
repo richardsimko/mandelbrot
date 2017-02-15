@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var mandelbrotView:MandelbrotView!;
+    @IBOutlet var zoomSlider:UISlider!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,10 @@ class ViewController: UIViewController {
         self.mandelbrotView.currentHeight += 0.1;
         self.mandelbrotView.currentWidth += 0.1;
         self.mandelbrotView.setNeedsDisplay();
+    }
+    
+    @IBAction func zoomScaleChanged(){
+        self.mandelbrotView.zoomToScale(scale: Double(self.zoomSlider.value));
     }
 }
 

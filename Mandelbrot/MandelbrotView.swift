@@ -22,6 +22,12 @@ class MandelbrotView: UIView {
         return ImNumber(x: Double(x) / Double(midX) - currentWidth/2.0 + currentCenterX, y: currentHeight/2.0 - Double(y) / Double(midY) + currentCenterY);
     }
     
+    func zoomToScale(scale: Double){
+        currentWidth = (1-scale) * 8.0;
+        currentHeight = (1-scale) * 8.0;
+        self.setNeedsDisplay();
+    }
+    
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()!;
         for i in 0...Int(rect.height) {
