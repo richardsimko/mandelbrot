@@ -12,6 +12,8 @@
 		1DB800891E547599002E6CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB800871E547599002E6CBD /* Main.storyboard */; };
 		1DB8008B1E547599002E6CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB8008A1E547599002E6CBD /* Assets.xcassets */; };
 		1DB8008E1E547599002E6CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB8008C1E547599002E6CBD /* LaunchScreen.storyboard */; };
+		1DB800981E5475B4002E6CBD /* ImNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB800971E5475B4002E6CBD /* ImNumber.swift */; };
+		1DB8009A1E5475BB002E6CBD /* MandelbrotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB800991E5475BB002E6CBD /* MandelbrotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1DB8008A1E547599002E6CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DB8008D1E547599002E6CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DB8008F1E547599002E6CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DB800971E5475B4002E6CBD /* ImNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImNumber.swift; sourceTree = "<group>"; };
+		1DB800991E5475BB002E6CBD /* MandelbrotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandelbrotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		1DB800821E547599002E6CBD /* Mandelbrot */ = {
 			isa = PBXGroup;
 			children = (
+				1DB800961E5475AA002E6CBD /* Models */,
+				1DB800951E5475A5002E6CBD /* Views */,
 				1DB800831E547599002E6CBD /* AppDelegate.swift */,
 				1DB800851E547599002E6CBD /* ViewController.swift */,
 				1DB800871E547599002E6CBD /* Main.storyboard */,
@@ -62,6 +68,22 @@
 				1DB8008F1E547599002E6CBD /* Info.plist */,
 			);
 			path = Mandelbrot;
+			sourceTree = "<group>";
+		};
+		1DB800951E5475A5002E6CBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1DB800991E5475BB002E6CBD /* MandelbrotView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1DB800961E5475AA002E6CBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DB800971E5475B4002E6CBD /* ImNumber.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +160,8 @@
 			files = (
 				1DB800861E547599002E6CBD /* ViewController.swift in Sources */,
 				1DB800841E547599002E6CBD /* AppDelegate.swift in Sources */,
+				1DB8009A1E5475BB002E6CBD /* MandelbrotView.swift in Sources */,
+				1DB800981E5475B4002E6CBD /* ImNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
