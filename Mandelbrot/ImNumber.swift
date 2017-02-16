@@ -8,7 +8,13 @@
 
 import Foundation
 
+protocol ImNumberDelegate: class {
+    func didFinishCalculations(sender: ImNumber, iterations: Int);
+}
+
 class ImNumber : NSObject {
+    
+    weak var delegate:ImNumberDelegate?;
     
     static let MAX_ITERATIONS:Int = 100;
     
@@ -40,19 +46,21 @@ class ImNumber : NSObject {
         return "Re: \(self.re) Im: \(self.im)";
     }
     
-    func checkMandelbrot() -> Int {
+    func checkMandelbrot() {
         var z_n = self.add(other: self.square());
         if(z_n.abs() >= 4)
         {
-            return 1;
+            self.delegate?.didFinishCalculations(sender: self, iterations: 1);
+            return;
         }
         for var i in 0...ImNumber.MAX_ITERATIONS {
             z_n = self.add(other: z_n.square());
             if(z_n.abs() >= 4)
             {
-                return i;
+                self.delegate?.didFinishCalculations(sender: self, iterations: i);
+                return;
             }
         }
-        return ImNumber.MAX_ITERATIONS;
+        self.delegate?.didFinishCalculations(sender: self, iterations: ImNumber.MAX_ITERATIONS);
     }
 }

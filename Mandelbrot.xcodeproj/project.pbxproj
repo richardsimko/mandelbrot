@@ -14,6 +14,7 @@
 		1DB8008E1E547599002E6CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB8008C1E547599002E6CBD /* LaunchScreen.storyboard */; };
 		1DB800981E5475B4002E6CBD /* ImNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB800971E5475B4002E6CBD /* ImNumber.swift */; };
 		1DB8009A1E5475BB002E6CBD /* MandelbrotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB800991E5475BB002E6CBD /* MandelbrotView.swift */; };
+		1DC656D31E5598EE00294205 /* MandelbrotCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC656D21E5598EE00294205 /* MandelbrotCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1DB8008F1E547599002E6CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB800971E5475B4002E6CBD /* ImNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImNumber.swift; sourceTree = "<group>"; };
 		1DB800991E5475BB002E6CBD /* MandelbrotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandelbrotView.swift; sourceTree = "<group>"; };
+		1DC656D21E5598EE00294205 /* MandelbrotCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandelbrotCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		1DB800821E547599002E6CBD /* Mandelbrot */ = {
 			isa = PBXGroup;
 			children = (
+				1DC656D41E5598F700294205 /* Util */,
 				1DB800961E5475AA002E6CBD /* Models */,
 				1DB800951E5475A5002E6CBD /* Views */,
 				1DB800831E547599002E6CBD /* AppDelegate.swift */,
@@ -84,6 +87,14 @@
 				1DB800971E5475B4002E6CBD /* ImNumber.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1DC656D41E5598F700294205 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1DC656D21E5598EE00294205 /* MandelbrotCalculator.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				1DB800861E547599002E6CBD /* ViewController.swift in Sources */,
 				1DB800841E547599002E6CBD /* AppDelegate.swift in Sources */,
+				1DC656D31E5598EE00294205 /* MandelbrotCalculator.swift in Sources */,
 				1DB8009A1E5475BB002E6CBD /* MandelbrotView.swift in Sources */,
 				1DB800981E5475B4002E6CBD /* ImNumber.swift in Sources */,
 			);
@@ -323,6 +335,7 @@
 				1DB800941E547599002E6CBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
