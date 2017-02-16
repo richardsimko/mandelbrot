@@ -82,7 +82,7 @@ class MandelbrotView: UIView, ImNumberDelegate {
                 }
                 else {
                     let factor = sqrt(Double(iterations) / Double(ImNumber.MAX_ITERATIONS));
-                    context.setFillColor(red: 0, green: 1-CGFloat(factor), blue: CGFloat(factor), alpha: 1.0);
+                    context.setFillColor(red: 0, green: 1-CGFloat(factor), blue: sqrt(CGFloat(factor)), alpha: 1.0);
                     let rectangle = CGRect(x: i, y: j, width: 1, height: 1);
                     context.fill(rectangle);
                 }

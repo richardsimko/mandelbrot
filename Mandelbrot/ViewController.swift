@@ -54,7 +54,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
             NSObject.cancelPreviousPerformRequests(withTarget: self);
             let xOffset = self.scrollView.contentOffset.x - (self.originalScrollPosition?.x)!;
             let yOffset = (self.originalScrollPosition?.y)! - self.scrollView.contentOffset.y;
-            print(self.scrollView.contentOffset);
             self.mandelbrotView.scrollTo(x: xOffset, y: yOffset);
             self.mandelbrotView.reload();
         }
