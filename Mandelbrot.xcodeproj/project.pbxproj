@@ -129,6 +129,7 @@
 				TargetAttributes = {
 					1DB8007F1E547599002E6CBD = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JR3V56VX93;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -296,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JR3V56VX93;
 				INFOPLIST_FILE = Mandelbrot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Mandelbrot;
@@ -308,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JR3V56VX93;
 				INFOPLIST_FILE = Mandelbrot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.Mandelbrot;
