@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDelegate {
     
     @IBOutlet var mandelbrotView:MandelbrotView!;
-    @IBOutlet var zoomSlider:UISlider!;
     @IBOutlet var scrollView:UIScrollView!;
     @IBOutlet var contentView:UIView!;
     @IBOutlet var spinner:UIActivityIndicatorView!;
@@ -36,6 +35,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func resetZoom(){
+        self.mandelbrotView.reset();
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

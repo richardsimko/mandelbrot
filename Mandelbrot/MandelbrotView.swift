@@ -18,12 +18,15 @@ class MandelbrotView: UIView, ImNumberDelegate {
     
     weak var delegate:MandelbrotViewDelegate?
     
-    var currentCenterX = 0.0;
-    var currentCenterY = 0.0;
-    var currentWidth = 4.0;
-    var currentHeight = 4.0;
+    static var DEFAULT_WIDTH = 4.0;
+    static var DEFAULT_HEIGHT = 4.0;
+    static var DEFAULT_CENTER_X = 0.0;
+    static var DEFAULT_CENTER_Y = 0.0;
     
-    var lastScale:CGFloat = 1.0;
+    var currentCenterX = MandelbrotView.DEFAULT_CENTER_X;
+    var currentCenterY = MandelbrotView.DEFAULT_CENTER_Y;
+    var currentWidth = MandelbrotView.DEFAULT_WIDTH;
+    var currentHeight = MandelbrotView.DEFAULT_HEIGHT;
     
     var numbers:[[Int]] = [[]];
     
@@ -50,7 +53,7 @@ class MandelbrotView: UIView, ImNumberDelegate {
     }
     
     /**
-     * Zooms the view to a specific scale.
+     * Scales the view from the current scale by the supplied value
      */
     func zoomToScale(scale: CGFloat){
         // Since scale increases when zooming in but we want to reduce the area we're showing it has to be inverted
@@ -59,11 +62,19 @@ class MandelbrotView: UIView, ImNumberDelegate {
     }
     
     /**
-     * Scrolls the view to a specific coordinate
+     * Scrolls the with the specific offset
      */
     func scrollTo(x: CGFloat, y: CGFloat){
         self.currentCenterX += self.currentWidth * (Double(x) / Double(self.bounds.size.width));
         self.currentCenterY += self.currentHeight * (Double(y) / Double(self.bounds.size.height));
+    }
+    
+    func reset() {
+        self.currentWidth = MandelbrotView.DEFAULT_WIDTH;
+        self.currentHeight = MandelbrotView.DEFAULT_HEIGHT;
+        self.currentCenterX = MandelbrotView.DEFAULT_CENTER_X;
+        self.currentCenterY = MandelbrotView.DEFAULT_CENTER_Y;
+        self.reload();
     }
     
     override func draw(_ rect: CGRect) {
@@ -110,7 +121,6 @@ class MandelbrotView: UIView, ImNumberDelegate {
     func pinch(sender: UIPinchGestureRecognizer) {
         self.transform = CGAffineTransform.init(scaleX: sender.scale, y: sender.scale);
         if sender.state == UIGestureRecognizerState.ended {
-            self.lastScale = sender.scale;
             self.zoomToScale(scale: sender.scale);
             self.reload();
         }
