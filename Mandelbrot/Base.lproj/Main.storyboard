@@ -36,7 +36,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.97368682040878118" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1000" id="4N5-1R-jye"/>
                                             <constraint firstItem="Fpr-s0-jY3" firstAttribute="centerX" secondItem="u0u-xn-J4w" secondAttribute="centerX" id="T6i-Du-kuw"/>
@@ -56,17 +56,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ITx-oz-oWR"/>
                                 </connections>
                             </scrollView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XHs-rh-G9X">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XHs-rh-G9X">
                                 <rect key="frame" x="177" y="52" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lYW-JB-UOw" firstAttribute="top" secondItem="m8h-9P-t6V" secondAttribute="bottom" constant="146" id="58M-fL-z8E"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6id-V2-nT7"/>
                             <constraint firstAttribute="trailing" secondItem="m8h-9P-t6V" secondAttribute="trailing" id="7WW-7c-MWB"/>
-                            <constraint firstItem="m8h-9P-t6V" firstAttribute="top" secondItem="MRT-ge-XZz" secondAttribute="bottom" constant="126" id="E4G-LT-937"/>
+                            <constraint firstItem="XHs-rh-G9X" firstAttribute="top" secondItem="MRT-ge-XZz" secondAttribute="bottom" constant="32" id="CkB-Z1-va5"/>
                             <constraint firstItem="m8h-9P-t6V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TPB-Ub-4l3"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="top" secondItem="XHs-rh-G9X" secondAttribute="bottom" constant="74" id="W4v-J7-Y41"/>
+                            <constraint firstItem="m8h-9P-t6V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="neF-1B-Fev"/>
+                            <constraint firstItem="XHs-rh-G9X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yuP-cd-Kgh"/>
                         </constraints>
                     </view>
                     <connections>
