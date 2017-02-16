@@ -22,7 +22,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.spinner.startAnimating();
         self.mandelbrotView.delegate = self;
     }
     
@@ -31,6 +30,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
         self.scrollView.scrollRectToVisible(self.mandelbrotView.convert(self.mandelbrotView.bounds, to: self.scrollView), animated: false);
         self.originalScrollPosition = self.scrollView.contentOffset;
         self.mandelbrotView.addGestureRecognizer(UIPinchGestureRecognizer.init(target: self.mandelbrotView, action: #selector(self.mandelbrotView.pinch(sender:))));
+        self.mandelbrotView.reload();
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,16 +48,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("end scrolling \(self.preventScrollAnimation) \(self.scrollView.zoomScale)");
         if(self.preventScrollAnimation == true){
             self.preventScrollAnimation = false;
         } else {
             NSObject.cancelPreviousPerformRequests(withTarget: self);
-            var xOffset = self.scrollView.contentOffset.x - (self.originalScrollPosition?.x)!;
-            var yOffset = (self.originalScrollPosition?.y)! - self.scrollView.contentOffset.y;
+            let xOffset = self.scrollView.contentOffset.x - (self.originalScrollPosition?.x)!;
+            let yOffset = (self.originalScrollPosition?.y)! - self.scrollView.contentOffset.y;
             print(self.scrollView.contentOffset);
             self.mandelbrotView.scrollTo(x: xOffset, y: yOffset);
-            self.mandelbrotView.setNeedsDisplay();
+            self.mandelbrotView.reload();
         }
     }
     
@@ -67,7 +66,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, MandelbrotViewDele
             self.originalScrollPosition = self.scrollView.contentOffset;
             self.preventScrollAnimation = true;
         }
+        self.scrollView.isUserInteractionEnabled = true;
+        self.mandelbrotView.isUserInteractionEnabled = true;
         self.spinner.stopAnimating();
+    }
+    
+    internal func mandelbrotViewDidStartRendering(){
+        self.scrollView.isUserInteractionEnabled = false;
+        self.mandelbrotView.isUserInteractionEnabled = false;
+        self.spinner.startAnimating();
     }
 }
 
